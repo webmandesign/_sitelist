@@ -38,7 +38,7 @@ Distributed under the terms of the GNU GPL
 
 ### CSS copyright
 
-**Normalize.css**
-Copyright (c) Nicolas Gallagher and Jonathan Neal
-Licensed under the MIT license
+**Normalize.css**<br>
+Copyright (c) Nicolas Gallagher and Jonathan Neal<br>
+Licensed under the MIT license<br>
 git.io/normalize
