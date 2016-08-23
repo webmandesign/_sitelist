@@ -1,0 +1,138 @@
+/**
+ * Theme Name:   _Multisite Site List
+ * Author:       WebMan Design
+ * Author URI:   http://www.webmandesign.eu/
+ * Version:      1.0
+ * Description:  Lists all the sites on WordPress Multisite network. Specifically created for WebMan Design theme demo websites network.
+ * License:      GNU General Public License v3
+ * License URI:  http://www.gnu.org/licenses/gpl-3.0.html
+ *
+ * This theme, like WordPress, is licensed under the GPL.
+ * Use it to make something cool, have fun, and share what you've learned with others.
+ *
+ * IMPORTANT: Read the instructions in `readme.md` file.
+ */
+
+
+
+
+
+// Imports
+
+	@import 'normalize';
+
+
+
+
+
+// Basic styles
+
+	html {
+		overflow-y: scroll;
+		box-sizing: border-box;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	}
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: inherit;
+	}
+
+	body {
+		line-height: 1.5;
+		background: #e9e9e9;
+		color: #464646;
+	}
+
+	h1 {
+		padding: 1em;
+		margin: 0;
+		text-align: center;
+		font-size: 2.62em;
+		font-weight: 300;
+
+		a {
+			font-weight: 600;
+		}
+
+	}
+
+	img {
+		max-width: 100%;
+		vertical-align: top;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+
+
+// List container
+
+	.sites {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		max-width: 1920px;
+		padding: 2%;
+		margin: 0 auto;
+		list-style: none;
+	}
+
+
+
+// List item
+
+	.site {
+		flex-grow: 1;
+		flex-shrink: 1;
+		width: 23%;
+		min-width: 16em;
+		max-width: 26em;
+		padding: 2.62em;
+		margin: 1%;
+		background: #fff;
+		border: 1px solid #d6d6d6;
+		border-radius: .38em;
+		overflow: hidden;
+		transition: box-shadow .5s;
+		box-shadow: 0 0 1px rgba( #000, .2 );
+
+		&:hover {
+			box-shadow: 0 .38em 1.62em rgba( #000, .2 );
+		}
+
+		&-image {
+			margin: -2.62em -2.62em 1.62em;
+			border-bottom: 1px solid #d6d6d6;
+		}
+
+		&-title {
+			margin: 0;
+			font-size: 1.62em;
+			font-weight: 700;
+
+			small {
+				display: block;
+				text-transform: uppercase;
+				font-size: .5em;
+				font-weight: 400;
+				color: #868686;
+			}
+
+		}
+
+	}
+
+
+
+// About theme link
+
+	.about-theme {
+		font-size: .81em;
+		font-style: italic;
+		color: #969696;
+	}
