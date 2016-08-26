@@ -15,7 +15,7 @@ Lists all the sites on WordPress Multisite network. Specifically created for Web
 
 ## Demo
 
-Full theme demo website at [http://themedemos.webmandesign.eu].
+Full theme demo website at http://themedemos.webmandesign.eu
 
 
 ## Browser Compatibility
@@ -33,12 +33,12 @@ The theme was tested and is compatible with Chrome, Safari, Opera, Firefox, Edge
 ### Theme copyright
 
 **_Multisite Site List**
-Copyright (c) WebMan Design, Oliver Juhas [http://www.webmandesign.eu/]
+Copyright (c) [WebMan Design, Oliver Juhas](http://www.webmandesign.eu/)<br>
 Distributed under the terms of the GNU GPL
 
 ### CSS copyright
 
-**Normalize.css**
-Copyright (c) Nicolas Gallagher and Jonathan Neal
-Licensed under the MIT license
+**Normalize.css**<br>
+Copyright (c) Nicolas Gallagher and Jonathan Neal<br>
+Licensed under the MIT license<br>
 git.io/normalize
