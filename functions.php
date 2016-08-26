@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0
- * @version  1.0
+ * @version  1.1
  *
  * Contents:
  *
@@ -189,7 +189,7 @@ class SiteList {
 		 * List of sites
 		 *
 		 * @since    1.0
-		 * @version  1.0
+		 * @version  1.1
 		 */
 		public static function list() {
 
@@ -200,6 +200,7 @@ class SiteList {
 				$sites = get_sites( array(
 						'site__not_in' => array( 1 ),
 						'orderby'      => 'path',
+						'public'       => 1,
 					) );
 
 
