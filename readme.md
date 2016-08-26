@@ -2,7 +2,7 @@
 
 * **Theme URI:**          https://github.com/webmandesign/_sitelist
 * **Author:**             WebMan Design
-* **Author URI:**         http://www.webmandesign.eu/
+* **Author URI:**         http://www.webmandesign.eu
 * **License:**            GNU General Public License v3
 * **License URI:**        http://www.gnu.org/licenses/gpl-3.0.html
 * **Requires at least:**  4.6
@@ -32,13 +32,13 @@ The theme was tested and is compatible with Chrome, Safari, Opera, Firefox, Edge
 
 ### Theme copyright
 
-**_Multisite Site List**
-Copyright (c) [WebMan Design, Oliver Juhas](http://www.webmandesign.eu/)<br>
+**_Multisite Site List**  
+Copyright (c) [WebMan Design, Oliver Juhas](http://www.webmandesign.eu)  
 Distributed under the terms of the GNU GPL
 
 ### CSS copyright
 
-**Normalize.css**<br>
-Copyright (c) Nicolas Gallagher and Jonathan Neal<br>
-Licensed under the MIT license<br>
+**Normalize.css**  
+Copyright (c) Nicolas Gallagher and Jonathan Neal  
+Licensed under the MIT license  
 git.io/normalize
