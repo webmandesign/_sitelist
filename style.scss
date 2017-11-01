@@ -2,7 +2,7 @@
  * Theme Name:   _Multisite Site List
  * Author:       WebMan Design
  * Author URI:   http://www.webmandesign.eu/
- * Version:      1.1
+ * Version:      1.2
  * Description:  Lists <strong>only public</strong> sites on WebMan Design theme demos WordPress Multisite network.
  * License:      GNU General Public License v3
  * License URI:  http://www.gnu.org/licenses/gpl-3.0.html
@@ -87,13 +87,11 @@
 // List item
 
 	.site {
-		flex-grow: 1;
-		flex-shrink: 1;
+		flex: 0 1 24em;
 		width: 23%;
-		min-width: 16em;
-		max-width: 26em;
+		max-width: 24em;
 		padding: 2.62em;
-		margin: 1%;
+		margin: 1em 1%;
 		background: #fff;
 		border: 1px solid #d6d6d6;
 		border-radius: .38em;
