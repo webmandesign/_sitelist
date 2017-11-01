@@ -5,8 +5,8 @@
  * @package    _Multisite Site List
  * @copyright  WebMan Design, Oliver Juhas
  *
- * @since    1.0
- * @version  1.1
+ * @since    1.0.0
+ * @version  1.3.0
  *
  * Contents:
  *
@@ -31,8 +31,8 @@ class SiteList {
 		/**
 		 * Constructor
 		 *
-		 * @since    1.0
-		 * @version  1.0
+		 * @since    1.0.0
+		 * @version  1.0.0
 		 */
 		private function __construct() {
 
@@ -59,8 +59,8 @@ class SiteList {
 		/**
 		 * Initialization (get instance)
 		 *
-		 * @since    1.0
-		 * @version  1.0
+		 * @since    1.0.0
+		 * @version  1.0.0
 		 */
 		public static function init() {
 
@@ -88,8 +88,8 @@ class SiteList {
 		/**
 		 * Theme setup
 		 *
-		 * @since    1.0
-		 * @version  1.0
+		 * @since    1.0.0
+		 * @version  1.0.0
 		 */
 		public static function setup() {
 
@@ -122,8 +122,8 @@ class SiteList {
 		/**
 		 * HTML DOCTYPE
 		 *
-		 * @since    1.0
-		 * @version  1.0
+		 * @since    1.0.0
+		 * @version  1.0.0
 		 */
 		public static function doctype() {
 
@@ -138,8 +138,8 @@ class SiteList {
 		/**
 		 * HTML HEAD
 		 *
-		 * @since    1.0
-		 * @version  1.0
+		 * @since    1.0.0
+		 * @version  1.0.0
 		 */
 		public static function head() {
 
@@ -166,8 +166,8 @@ class SiteList {
 		/**
 		 * Assets
 		 *
-		 * @since    1.0
-		 * @version  1.0
+		 * @since    1.0.0
+		 * @version  1.0.0
 		 */
 		public static function assets() {
 
@@ -188,8 +188,8 @@ class SiteList {
 		/**
 		 * List of sites
 		 *
-		 * @since    1.0
-		 * @version  1.1
+		 * @since    1.0.0
+		 * @version  1.3.0
 		 */
 		public static function list() {
 
@@ -198,10 +198,10 @@ class SiteList {
 				$output = array();
 
 				$sites = get_sites( array(
-						'site__not_in' => array( 1 ),
-						'orderby'      => 'path',
-						'public'       => 1,
-					) );
+					'site__not_in' => array( 1 ),
+					'public'       => 1,
+					'order'        => 'DESC',
+				) );
 
 
 			// Processing
