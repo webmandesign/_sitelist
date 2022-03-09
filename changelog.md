@@ -1,5 +1,27 @@
 # _Multisite Site List
 
+## 1.5.0
+
+* **Update**: Compacting the list of sites
+
+#### Files changed:
+
+	changelog.md
+	functions.php
+	style.scss
+
+
+## 1.4.0
+
+* **Update**: Displaying site name and theme info in the list
+
+#### Files changed:
+
+	changelog.md
+	functions.php
+	style.scss
+
+
 ## 1.3.0
 
 * **Update**: Using semantic versioning

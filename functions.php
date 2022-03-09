@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.3.0
+ * @version  1.5.0
  *
  * Contents:
  *
@@ -189,7 +189,7 @@ class SiteList {
 		 * List of sites
 		 *
 		 * @since    1.0.0
-		 * @version  1.3.0
+		 * @version  1.5.0
 		 */
 		public static function list() {
 
@@ -208,7 +208,9 @@ class SiteList {
 
 				foreach ( $sites as $site ) {
 
-					$t = wp_get_theme( basename( $site->path ) );
+					$site = get_blog_details( $site->blog_id );
+
+					$t = wp_get_theme( get_blog_option( $site->blog_id, 'stylesheet' ) );
 
 					$theme['name']        = $t->get( 'Name' );
 					$theme['description'] = $t->get( 'Description' );
@@ -217,12 +219,10 @@ class SiteList {
 
 					$output_single = '';
 
-					$output_single .= '<a href="' . esc_url( $site->domain . $site->path ) . '">';
+					$output_single .= '<a href="' . esc_url( $site->siteurl ) . '">';
 					$output_single .= '<div class="site-image"><img src="' . esc_url( $theme['screenshot'] ) . '" alt="' . esc_attr( $theme['name'] ) . ' Theme Demo Website" /></div>';
-					$output_single .= '<h2 class="site-title" title="' . esc_attr( $theme['name'] ) . ' Theme Demo Website">' . $theme['name'] . ' <small>Theme Demo</small></h2>';
+					$output_single .= '<h2 class="site-title" title="' . esc_attr( $theme['name'] ) . ' Theme Demo Website">' . $site->blogname . ' <small>' . $theme['name'] . ' Theme Demo</small></h2>';
 					$output_single .= '</a>';
-
-					// $output_single .= '<a href="' . esc_url( $theme['url'] ) . '" class="about-theme">More info about the theme &raquo;</a>';
 
 					$output[] = $output_single;
 
