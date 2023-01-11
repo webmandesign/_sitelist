@@ -2,7 +2,7 @@
  * Theme Name:   _Multisite Site List
  * Author:       WebMan Design
  * Author URI:   http://www.webmandesign.eu/
- * Version:      1.5.0
+ * Version:      1.6.0
  * Description:  Lists <strong>only public</strong> sites on WebMan Design theme demos WordPress Multisite network.
  * License:      GNU General Public License v3
  * License URI:  http://www.gnu.org/licenses/gpl-3.0.html
@@ -19,14 +19,20 @@
 	--color-bg: #191919;
 	--color-h: #fff;
 	--color-txt: #999;
-	--color-bd: #333;
+	--color-bd: #{ rgba( #fff, .25 ) };
 
 	--color-underline: #{ rgba( #fff, .5 ) };
+	--color-underline-alt: #{ rgba( #000, .5 ) };
 
 	--color-bg-site: #292929;
 	--color-h-site: var(--color-h);
 	--color-txt-site: var(--color-txt);
 	--color-bd-site: var(--color-bd);
+
+	--color-bg-site-alt: #fbce2f;
+	--color-h-site-alt: #000;
+	--color-txt-site-alt: #{ rgba( #000, .75 ) };
+	--color-bd-site-alt: #{ rgba( #000, .25 ) };
 }
 
 // Basic styles.
@@ -125,6 +131,14 @@
 		transform: scale(1.25);
 	}
 
+	&.is-alt {
+		--color-bg-site: var(--color-bg-site-alt);
+		--color-h-site: var(--color-h-site-alt);
+		--color-txt-site: var(--color-txt-site-alt);
+		--color-bd-site: var(--color-bd-site-alt);
+		--color-underline: var(--color-underline-alt);
+	}
+
 	&-image {
 		margin: -$gap;
 		margin-bottom: $gap;
@@ -136,6 +150,7 @@
 		margin: 0;
 		font-size: 1em;
 		font-weight: 700;
+		color: var(--color-h-site);
 
 		small {
 			display: block;
