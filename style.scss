@@ -2,7 +2,7 @@
  * Theme Name:   _Multisite Site List
  * Author:       WebMan Design
  * Author URI:   http://www.webmandesign.eu/
- * Version:      1.6.0
+ * Version:      1.8.0
  * Description:  Lists <strong>only public</strong> sites on WebMan Design theme demos WordPress Multisite network.
  * License:      GNU General Public License v3
  * License URI:  http://www.gnu.org/licenses/gpl-3.0.html
@@ -50,7 +50,6 @@
 		@media (prefers-reduced-motion: reduce) {
 			scroll-behavior: auto;
 		}
-
 	}
 
 	* {
@@ -61,7 +60,6 @@
 		&::after {
 			box-sizing: inherit;
 		}
-
 	}
 
 	h1, h2, h3 {
@@ -79,7 +77,6 @@
 		a {
 			font-weight: 700;
 		}
-
 	}
 
 	img {
@@ -99,7 +96,6 @@
 			text-decoration-color: var(--color-underline);
 			text-underline-offset: .25em;
 		}
-
 	}
 
 // Sites list.
@@ -117,6 +113,7 @@
 		list-style: none;
 	}
 
+	position: relative;
 	width: 240px;
 	max-width: 20em;
 	padding: $gap;
@@ -129,6 +126,7 @@
 	&:hover {
 		box-shadow: 0 .5em 1.5em rgba( #000, .66 );
 		transform: scale(1.25);
+		z-index: 100;
 	}
 
 	&.is-alt {
@@ -138,6 +136,14 @@
 		--color-bd-site: var(--color-bd-site-alt);
 		--color-underline: var(--color-underline-alt);
 	}
+
+		&.is-archived {
+			--color-bg-site: #000;
+			--color-h-site: #999;
+			--color-txt-site: #666;
+			--color-bd-site: #111;
+			--color-underline: #666;
+		}
 
 	&-image {
 		margin: -$gap;
@@ -159,7 +165,34 @@
 			font-weight: 400;
 			color: var(--color-txt-site);
 		}
-
 	}
 
+	.link-admin {
+		position: absolute;
+		width: 50%;
+		height: 100%;
+		right: -50%;
+		top: 0;
+		text-decoration: none;
+		background: rgba( #c03, .8 );
+		color: #fff;
+		border-radius: .25em;
+		backdrop-filter: blur( 5px );
+		transition: right .3s;
+		transition-delay: .2s;
+
+		span {
+			position: absolute;
+			left: .5em;
+			bottom: 0;
+			text-transform: uppercase;
+			letter-spacing: .15em;
+			transform: rotate( -90deg );
+			transform-origin: 0 0;
+		}
+	}
+
+	&:hover .link-admin {
+		right: -10%;
+	}
 }

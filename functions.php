@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.6.0
+ * @version  1.8.0
  */
 class SiteList {
 
@@ -119,7 +119,7 @@ class SiteList {
 	 * List of sites.
 	 *
 	 * @since    1.0.0
-	 * @version  1.6.0
+	 * @version  1.8.0
 	 */
 	public static function list() {
 
@@ -127,11 +127,18 @@ class SiteList {
 
 			$output = array();
 
-			$sites = get_sites( array(
+			$args_sites = array(
 				'site__not_in' => array( 1 ),
 				'public'       => 1,
 				'order'        => 'DESC',
-			) );
+			);
+
+				// Display all sites for admins.
+				if ( current_user_can( 'edit_theme_options' ) ) {
+					unset( $args_sites['public'] );
+				}
+
+			$sites = get_sites( $args_sites );
 
 
 		// Processing
@@ -143,7 +150,11 @@ class SiteList {
 				$t = wp_get_theme( get_blog_option( $site->blog_id, 'stylesheet' ) );
 
 				$class  = 'theme--' . sanitize_title( $t->get_template() );
-				$class .= ( $site->mature ) ? ( ' is-alt is-mature' ) : ( '' );
+				$class .= ( $site->archived || $site->deleted || $site->mature || $site->spam ) ? ( ' is-alt' ) : ( '' );
+				$class .= ( $site->archived ) ? ( ' is-archived' ) : ( '' );
+				$class .= ( $site->deleted ) ? ( ' is-deleted' ) : ( '' );
+				$class .= ( $site->mature ) ? ( ' is-mature' ) : ( '' );
+				$class .= ( $site->spam ) ? ( ' is-spam' ) : ( '' );
 
 				$theme['name']        = $t->get( 'Name' );
 				$theme['description'] = $t->get( 'Description' );
@@ -155,6 +166,14 @@ class SiteList {
 				$output_single .= '<div class="site-image"><img src="' . esc_url( $theme['screenshot'] ) . '" alt="' . esc_attr( $theme['name'] ) . ' Theme Demo Website" /></div>';
 				$output_single .= '<h2 class="site-title" title="' . esc_attr( $theme['name'] ) . ' Theme Demo Website">' . $site->blogname . ' <small>' . $theme['name'] . ' Theme Demo</small></h2>';
 				$output_single .= '</a>';
+
+				// Admin link.
+				if ( current_user_can( 'edit_theme_options' ) ) {
+					$output_single .= '<a href="' . esc_url( get_admin_url( $site->blog_id, 'edit.php?post_type=page' ) ) . '" class="link-admin">';
+					$output_single .= '<span>Admin</span>';
+					$output_single .= '</a>';
+				}
+
 				$output_single .= '</li>';
 
 				$output[] = $output_single;
