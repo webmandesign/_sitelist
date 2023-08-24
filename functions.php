@@ -6,7 +6,7 @@
  * @copyright  WebMan Design, Oliver Juhas
  *
  * @since    1.0.0
- * @version  1.8.0
+ * @version  2.0.0
  */
 class SiteList {
 
@@ -119,7 +119,7 @@ class SiteList {
 	 * List of sites.
 	 *
 	 * @since    1.0.0
-	 * @version  1.8.0
+	 * @version  2.0.0
 	 */
 	public static function list() {
 
@@ -158,7 +158,7 @@ class SiteList {
 
 				$theme['name']        = $t->get( 'Name' );
 				$theme['description'] = $t->get( 'Description' );
-				$theme['screenshot']  = $t->get_screenshot();
+				$theme['screenshot']  = add_query_arg( 'v', $t->get( 'Version' ), $t->get_screenshot() );
 				$theme['url']         = $t->get( 'ThemeURI' );
 
 				$output_single  = '<li class="site ' . esc_attr( $class ) . '">';

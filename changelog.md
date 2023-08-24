@@ -1,5 +1,17 @@
 # _Multisite Site List
 
+## 2.0.0, 20230824
+
+### Added
+- Theme version number to screenshot URL
+
+### File updates
+	changelog.md
+	functions.php
+	style.scss
+
+⋮
+
 ## 1.5.0
 
 * **Update**: Compacting the list of sites
