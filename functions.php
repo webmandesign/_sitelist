@@ -1,13 +1,5 @@
 <?php
-/**
- * List of WordPress multisite sites
- *
- * @package    _Multisite Site List
- * @copyright  WebMan Design, Oliver Juhas
- *
- * @since    1.0.0
- * @version  2.0.0
- */
+
 class SiteList {
 
 	/**
@@ -119,13 +111,13 @@ class SiteList {
 	 * List of sites.
 	 *
 	 * @since    1.0.0
-	 * @version  2.0.0
+	 * @version  2.1.0
 	 */
 	public static function list() {
 
 		// Variables
 
-			$output = array();
+			$output = [];
 
 			$args_sites = array(
 				'site__not_in' => array( 1 ),
@@ -140,8 +132,29 @@ class SiteList {
 
 			$sites = get_sites( $args_sites );
 
+			$themes_paid = get_transient( '_sitelist_themes' );
+
 
 		// Processing
+
+			if ( empty( $themes_paid ) ) {
+
+				$url  = 'https://raw.githubusercontent.com/webmandesign/updates/master/themes/versions.json';
+				$data = wp_remote_get( $url );
+
+				// Get paid themes list from version data from GitHub.
+				if (
+					! is_wp_error( $data )
+					&& isset( $data['body'] )
+				) {
+
+					$themes_paid = json_decode( $data['body'], true );
+
+					unset( $themes_paid['theme-slug'] );
+				}
+
+				set_transient( '_sitelist_themes', $themes_paid, DAY_IN_SECONDS );
+			}
 
 			foreach ( $sites as $site ) {
 
@@ -150,6 +163,7 @@ class SiteList {
 				$t = wp_get_theme( get_blog_option( $site->blog_id, 'stylesheet' ) );
 
 				$class  = 'theme--' . sanitize_title( $t->get_template() );
+				$class .= ( isset( $themes_paid[ $t->get_template() ] ) ) ? ( ' is-paid' ) : ( '' );
 				$class .= ( $site->archived || $site->deleted || $site->mature || $site->spam ) ? ( ' is-alt' ) : ( '' );
 				$class .= ( $site->archived ) ? ( ' is-archived' ) : ( '' );
 				$class .= ( $site->deleted ) ? ( ' is-deleted' ) : ( '' );

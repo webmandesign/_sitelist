@@ -2,7 +2,7 @@
  * Theme Name:   _Multisite Site List
  * Author:       WebMan Design
  * Author URI:   http://www.webmandesign.eu/
- * Version:      2.0.0
+ * Version:      2.1.0
  * Description:  Lists <strong>only public</strong> sites on WebMan Design theme demos WordPress Multisite network.
  * License:      GNU General Public License v3
  * License URI:  http://www.gnu.org/licenses/gpl-3.0.html
@@ -26,7 +26,7 @@
 
 	--color-bg-site: #292929;
 	--color-h-site: var(--color-h);
-	--color-txt-site: var(--color-txt);
+	--color-txt-site: color-mix( in srgb, currentColor 66%, transparent );
 	--color-bd-site: var(--color-bd);
 
 	--color-bg-site-alt: #fbce2f;
@@ -35,7 +35,25 @@
 	--color-bd-site-alt: #{ rgba( #000, .25 ) };
 
 	--color-bg-link-admin: #{ rgba( #c03, .8 ) };
+
+	--width-site: 240px;
+	--gap: 1.5em;
 }
+
+	.is-archived {
+		--color-bg-link-admin: #{ rgba( #000, .2 ) };
+	}
+
+	.is-mature {
+		--color-bg-site: var(--color-bg-site-alt);
+		--color-h-site: var(--color-h-site-alt);
+		--color-bd-site: var(--color-bd-site-alt);
+		--color-underline: var(--color-underline-alt);
+	}
+
+	.is-paid {
+		--color-bg-site: #4134ae;
+	}
 
 // Basic styles.
 
@@ -103,11 +121,9 @@
 // Sites list.
 .site {
 
-	$gap : 1.5em;
-
 	&s {
 		display: flex;
-		gap: $gap;
+		gap: var(--gap);
 		flex-wrap: wrap;
 		justify-content: center;
 		padding: 2%;
@@ -116,9 +132,9 @@
 	}
 
 	position: relative;
-	width: 240px;
+	width: var(--width-site);
 	max-width: 20em;
-	padding: $gap;
+	padding: var(--gap);
 	background: var(--color-bg-site);
 	border-color: var(--color-bd-site);
 	border-radius: .25em;
@@ -135,24 +151,15 @@
 	}
 
 		&.is-archived {
-			--color-bg-link-admin: #{ rgba( #000, .2 ) };
 
 			&:not(:hover) {
 				opacity: .25;
 			}
 		}
 
-		&.is-mature {
-			--color-bg-site: var(--color-bg-site-alt);
-			--color-h-site: var(--color-h-site-alt);
-			--color-txt-site: var(--color-txt-site-alt);
-			--color-bd-site: var(--color-bd-site-alt);
-			--color-underline: var(--color-underline-alt);
-		}
-
 	&-image {
-		margin: -$gap;
-		margin-bottom: $gap;
+		margin: calc( -1 * var(--gap) );
+		margin-bottom: var(--gap);
 		border-bottom-width: 1px;
 		border-bottom-style: solid;
 		transition: opacity .3s;
@@ -162,10 +169,15 @@
 		margin: 0;
 		font-size: 1em;
 		font-weight: 700;
+		line-height: 1.2;
+		text-overflow: ellipsis;
+		// white-space: nowrap;
 		color: var(--color-h-site);
+		overflow: hidden;
 
 		small {
 			display: block;
+			margin-top: .5em;
 			text-transform: uppercase;
 			font-size: .66em;
 			font-weight: 400;
@@ -184,8 +196,8 @@
 		color: #fff;
 		border-radius: .25em;
 		backdrop-filter: blur( 5px );
-		transition: right .3s;
-		transition-delay: .2s;
+		transition: right .2s;
+		transition-delay: .1s;
 
 		span {
 			position: absolute;

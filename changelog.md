@@ -1,5 +1,19 @@
 # _Multisite Site List
 
+## 2.1.0, 20250829
+
+### Update
+- Styles
+
+### File updates
+	changelog.md
+	style.scss
+	footer.php
+	functions.php
+	header.php
+	index.php
+
+
 ## 2.0.0, 20230824
 
 ### Added
